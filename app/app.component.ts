@@ -12,17 +12,24 @@ interface Passager {
   template: `
     <div class="app">
       <h3>Airline passagers</h3>
-      <template ngFor let-passager let-i="index" [ngForOf]="passagers">
-        <li>
-        {{ i }}: {{ passager.fullname }}
-        </li>
-      </template>
-      <h3>Airline passagers</h3>
       <ul>
         <li *ngFor="let passager of passagers; let i = index;">
+        <span class="status"
+        [class.check-in]="passager.checkIn"></span>
         {{ i }}: {{ passager.fullname }}
         </li>
       </ul>
+      <br>
+        <ul>
+          <li *ngFor="let passager of passagers; let i = index;">
+          <span class="status"
+          [ngClass]="{
+            'check-in' : passager.checkIn,
+            'check-out' : !passager.checkIn
+            }"></span>
+          {{ i }}: {{ passager.fullname }}
+          </li>
+        </ul>
     </div>
   `
 })
@@ -36,10 +43,15 @@ export class AppComponent {
     {
       id: 2,
       fullname: "Renata guelfi",
-      checkIn: true
+      checkIn: false
     },
     {
       id: 3,
+      fullname: "Ana Julgia guelfi",
+      checkIn: true
+    },
+    {
+      id: 4,
       fullname: "Ivar guelfi",
       checkIn: false
     }
