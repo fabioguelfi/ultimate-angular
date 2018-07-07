@@ -5,22 +5,16 @@ import { Component } from "@angular/core";
   styleUrls: ["app.component.scss"],
   template: `
     <div class="app">
-      <input type="text" 
-      [ngModel]="name"
-      (ngModelChange)="handleModel($event)"
-      [value]="name" 
-      />
-      <input type="text" 
-      [(ngModel)]="name"
-      />
-      <div>{{ name }}</div>
+     <button (click)="handleClick(username.value)">Click Here</button>
+     <input type="text" #username />
+     <div>{{ name }}</div>
     </div>
   `
 })
 export class AppComponent {
   public name: string = "guelfi";
 
-  private handleModel(value: string): void {
-    this.name = value;
+  private handleClick(value: string): void {
+    console.log(value)
   }
 }
