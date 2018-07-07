@@ -14,22 +14,21 @@ interface Passager {
       <h3>Airline passagers</h3>
       <ul>
         <li *ngFor="let passager of passagers; let i = index;">
-        <span class="status"
-        [class.check-in]="passager.checkIn"></span>
+        <span class="status" [style.backgroundColor]="(passager.checkIn ? '#32e565' : '#e83e32')"></span>
         {{ i }}: {{ passager.fullname }}
         </li>
       </ul>
       <br>
-        <ul>
-          <li *ngFor="let passager of passagers; let i = index;">
-          <span class="status"
-          [ngClass]="{
-            'check-in' : passager.checkIn,
-            'check-out' : !passager.checkIn
-            }"></span>
-          {{ i }}: {{ passager.fullname }}
-          </li>
-        </ul>
+      <h3>Airline passagers</h3>
+      <ul>
+        <li *ngFor="let passager of passagers; let i = index;">
+        <span class="status" 
+        [ngStyle]="{ 
+          backgroundColor: passager.checkIn ? '#32e565' : '#e83e32'
+         }"></span>
+        {{ i }}: {{ passager.fullname }}
+        </li>
+      </ul>
     </div>
   `
 })
