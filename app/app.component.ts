@@ -5,15 +5,18 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-      {{title}}!
-      <p>{{ number_1 + number_2 }}</p>
+      <p [innerHtml]="title"></p>
+      <p>{{title}}</p>
+      <img [src]="logo">
+      <input type="text" [value]="name" />
+      <div>{{ name }}</div>
     </div>
   `
 })
 export class AppComponent {
   public title: string;
-  public number_1: number = 1;
-  public number_2: number = 2;
+  public logo: string = 'img/logo.svg';
+  public name: string = 'guelfi';
   constructor() {
     this.title = `Ultimate Angular`
   }
