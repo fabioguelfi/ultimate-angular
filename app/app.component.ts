@@ -1,28 +1,47 @@
 import { Component } from "@angular/core";
 
+interface Passager {
+  id: number;
+  fullname: string;
+  checkIn: boolean;
+}
+
 @Component({
   selector: "app-root",
   styleUrls: ["app.component.scss"],
   template: `
     <div class="app">
-     <input type="text"
-     [value]="name"
-     (input)="handleChange($event.target.value)" />
-     <div *ngIf="name.length > 2; else template">
-      Searching for ... {{ name }}
-     </div>
-     <template #template>
-      <div>
-      Searching for ...
-      </div>
-     </template>
+      <h3>Airline passagers</h3>
+      <template ngFor let-passager let-i="index" [ngForOf]="passagers">
+        <li>
+        {{ i }}: {{ passager.fullname }}
+        </li>
+      </template>
+      <h3>Airline passagers</h3>
+      <ul>
+        <li *ngFor="let passager of passagers; let i = index;">
+        {{ i }}: {{ passager.fullname }}
+        </li>
+      </ul>
     </div>
   `
 })
 export class AppComponent {
-  public name: string = "";
-
-  private handleChange(value: string): void {
-    this.name = value;
-  }
+  public passagers: Array<Passager> = [
+    {
+      id: 1,
+      fullname: "Fabio guelfi",
+      checkIn: true
+    },
+    {
+      id: 2,
+      fullname: "Renata guelfi",
+      checkIn: true
+    },
+    {
+      id: 3,
+      fullname: "Ivar guelfi",
+      checkIn: false
+    }
+  ];
 }
