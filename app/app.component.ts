@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  styleUrls: ['app.component.scss'],
+  selector: "app-root",
+  styleUrls: ["app.component.scss"],
   template: `
     <div class="app">
-      <p [innerHtml]="title"></p>
-      <p>{{title}}</p>
-      <img [src]="logo">
-      <input type="text" [value]="name" />
+      <button (click)="handleClick()">click here</button>
+      <input type="text" [value]="name" 
+      (input)="handleInput($event)"
+      (blur)="handleBlur($event)"/>
       <div>{{ name }}</div>
     </div>
   `
 })
 export class AppComponent {
-  public title: string;
-  public logo: string = 'img/logo.svg';
-  public name: string = 'guelfi';
-  constructor() {
-    this.title = `Ultimate Angular`
+  public name: string = "guelfi";
+
+  private handleBlur(event: any): void {
+    this.name = event.target.value;
+  }
+
+  private handleInput(event: any): void {
+    this.name = event.target.value;
+  }
+
+  private handleClick(event: any): void {
+    this.name = `fabio guelfi`;
   }
 }
