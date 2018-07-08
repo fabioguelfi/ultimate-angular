@@ -2,17 +2,19 @@ import { Component } from "@angular/core";
 import { Passager } from "../../models/passager.interface";
 
 @Component({
-    selector: 'passager-dashbord',
-    styleUrls: ['passager-dashbord.component.scss'],
+    selector: "passager-dashbord",
+    styleUrls: ["passager-dashbord.component.scss"],
     template: `
     <div>
         <passager-count
         [items]="passagers"
         ></passager-count>
-        
+
         <passager-detail
         *ngFor="let passager of passagers"
         [detail]="passager"
+        (edit)="handleEdit($event)"
+        (remove)="handleRemove($event)"
         >
         </passager-detail>
     </div>
@@ -46,4 +48,12 @@ export class PassagerDashbordComponent {
             checkInDate: 12916020300
         }
     ];
+
+    public handleRemove(event): void {
+        console.log(event);
+    }
+
+    public handleEdit(event): void {
+        console.log(event);
+    }
 }
