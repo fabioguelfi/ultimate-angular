@@ -10,6 +10,10 @@ import { Passager } from "../../models/passager.interface";
         [items]="passagers"
         ></passager-count>
 
+        <div *ngFor="let passager of passagers">
+            {{ passager.fullname }}
+        </div>
+
         <passager-detail
         *ngFor="let passager of passagers"
         [detail]="passager"

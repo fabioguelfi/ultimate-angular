@@ -1,5 +1,5 @@
 import { Passager } from "./../../models/passager.interface";
-import { Component, Input, Output } from "@angular/core";
+import { Component, Input, Output, OnChanges, OnInit } from "@angular/core";
 import { EventEmitter } from "@angular/common/src/facade/async";
 
 @Component({
@@ -34,12 +34,23 @@ import { EventEmitter } from "@angular/common/src/facade/async";
         </div>
     `
 })
-export class PassagetDetailComponent {
+export class PassagetDetailComponent implements OnChanges, OnInit {
     @Input() detail: Passager;
     @Output() edit: EventEmitter<any> = new EventEmitter();
     @Output() remove: EventEmitter<any> = new EventEmitter();
 
     public editing: boolean = false;
+
+    ngOnChanges(changes): void {
+        if (changes.detail) {
+            this.detail = Object.assign({}, changes.detail.currentValue);
+        }
+        console.log(`onChanges`)
+    }
+
+    ngOnInit(): void {
+        console.log(`onInit`)
+    }
 
     private onNameChange(value: string): any {
         this.detail.fullname = value;
