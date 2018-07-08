@@ -6,24 +6,15 @@ import { Passager } from "../../models/passager.interface";
     styleUrls: ['passager-dashbord.component.scss'],
     template: `
     <div>
-    <passager-count
-    [items]="passagers"
-    ></passager-count>
-    <passager-detail></passager-detail>
-        <ul>
-        <li *ngFor="let passager of passagers; let i = index;">
-        <span class="status" [style.backgroundColor]="(passager.checkIn ? '#32e565' : '#e83e32')"></span>
-        {{ i }}: {{ passager.fullname }}
-        <p>{{ passager | json }}</p>
-        <div class="data">
-            Check in date: 
-            {{ passager.checkInDate ? (passager.checkInDate | date: 'yMMMd') : 'Passager not checked' }}
-        </div>
-        <div class="children">
-            Children: {{ passager.children?.length || 0 }}
-        </div>
-        </li>
-        </ul>
+        <passager-count
+        [items]="passagers"
+        ></passager-count>
+        
+        <passager-detail
+        *ngFor="let passager of passagers"
+        [detail]="passager"
+        >
+        </passager-detail>
     </div>
     `
 })
