@@ -1,7 +1,10 @@
 import { Passager } from './../models/passager.interface';
+import { Inject, Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+@Injectable()
 export class PassagerDashbordServices {
-    constructor() {}
-
+    constructor(private http: Http) {}
+    
     public getPassagers(): Array<Passager> {
         return [
             {

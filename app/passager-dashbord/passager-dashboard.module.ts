@@ -4,7 +4,7 @@ import { PassagerDashbordComponent } from './containers/passager-dashboard/passa
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PassagetDetailComponent } from './components/passager-detail/passager-detail.component';
-
+import { HttpModule } from '@angular/http';
 @NgModule({
     declarations: [
         PassagerDashbordComponent,
@@ -12,7 +12,8 @@ import { PassagetDetailComponent } from './components/passager-detail/passager-d
         PassagetDetailComponent
     ], 
     imports: [
-        CommonModule
+        CommonModule,
+        HttpModule,
     ],
     exports: [
         PassagerDashbordComponent,
