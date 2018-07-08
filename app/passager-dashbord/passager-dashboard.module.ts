@@ -1,3 +1,4 @@
+import { PassagerDashbordServices } from './services/passager-dashbord.service';
 import { PassagerCountComponent } from './components/passager-count/passager-count.component';
 import { PassagerDashbordComponent } from './containers/passager-dashboard/passager-dashbord.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,9 @@ import { PassagetDetailComponent } from './components/passager-detail/passager-d
     ],
     exports: [
         PassagerDashbordComponent,
+    ],
+    providers: [
+        PassagerDashbordServices
     ]
 })
 export class PassagerDashbordModule {
