@@ -1,10 +1,7 @@
 {
   "passagers": [
     {
-      "id": 1,
-      "fullname": "Ivar guelfi",
-      "checkIn": false,
-      "checkInDate": 12916020300
+      "id": 1
     },
     {
       "id": 2
