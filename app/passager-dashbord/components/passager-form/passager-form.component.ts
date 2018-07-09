@@ -29,7 +29,7 @@ import { Component, Input, OnInit } from "@angular/core";
             #id="ngModel"
             [ngModel]="detail?.id">
             <div *ngIf="id?.errors?.required && id.dirty" class="error">
-            Passager: ID is required
+                Passager: ID is required
             </div>
         </div>
 
@@ -65,10 +65,9 @@ import { Component, Input, OnInit } from "@angular/core";
                 </option>
             </select>
         </div>
-
-        <div>{{ form.value | json }}</div>
-        <div>Valid: {{ form.valid | json }}</div>
-        <div>Invalid: {{ form.invalid | json }}</div>
+        <button type="submit" [disabled]="form.invalid">
+            Update Passager
+        </button>
     </form>
     `
 })
