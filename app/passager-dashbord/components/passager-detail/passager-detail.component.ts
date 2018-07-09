@@ -28,13 +28,17 @@ import { EventEmitter } from "@angular/common/src/facade/async";
                 <button (click)="onRemove()">
                     Remove
                 </button>
+                <button (click)="goToPassager()">
+                    View
+                </button>
         </div>
     `
 })
 export class PassagetDetailComponent implements OnChanges, OnInit {
     @Input() detail: Passager;
-    @Output() edit: EventEmitter<any> = new EventEmitter();
-    @Output() remove: EventEmitter<any> = new EventEmitter();
+    @Output() edit: EventEmitter<Passager> = new EventEmitter<Passager>();
+    @Output() remove: EventEmitter<Passager> = new EventEmitter<Passager>();
+    @Output() view: EventEmitter<Passager> = new EventEmitter<Passager>();
 
     public editing: boolean = false;
 
@@ -62,5 +66,9 @@ export class PassagetDetailComponent implements OnChanges, OnInit {
 
     private onRemove(): void {
         this.remove.emit(this.detail);
+    }
+
+    private goToPassager(): void {
+        this.view.emit(this.detail);
     }
 }
