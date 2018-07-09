@@ -14,7 +14,6 @@ export class PassagerDashbordServices {
     return this.http
       .get(PASSAGER_API)
       .map((response: Response) => { 
-        console.log(response.json());
         return response.json() 
       })
       .catch((err: any) => Observable.throw(err.json()));
