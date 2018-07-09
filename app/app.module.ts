@@ -2,17 +2,31 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 
 // components
 import { AppComponent } from "./app.component";
+import { HomeComponent } from './home.component';
 
 // modules
 import { PassagerDashbordModule } from "./passager-dashbord/passager-dashboard.module";
 
+const ROUTES: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent }
+]
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent, 
+    HomeComponent,
+    NotFoundComponent
+  ],
   bootstrap: [AppComponent],
-  imports: [BrowserModule, CommonModule, PassagerDashbordModule, RouterModule]
+  imports: [
+    BrowserModule, 
+    CommonModule, 
+    RouterModule.forRoot(ROUTES), 
+    PassagerDashbordModule]
 })
-export class AppModule {}
+export class AppModule { }
