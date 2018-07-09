@@ -28,10 +28,14 @@ import { Passager } from "../../models/passager.interface";
 export class PassagerDashbordComponent implements OnInit {
   public passagers: Array<Passager>;
 
-  constructor(private passagerDashbordServices: PassagerDashbordServices) {}
+  constructor(private passagerDashbordServices: PassagerDashbordServices) { }
 
   ngOnInit(): void {
-    this.passagers = this.passagerDashbordServices.getPassagers();
+    this.passagerDashbordServices.getPassagers()
+      .subscribe(
+        (res: Array<Passager>) => this.passagers = res,
+        err => console.log(err)
+      )
   }
 
   public handleRemove(event): void {

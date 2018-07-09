@@ -7,7 +7,7 @@ import { Component, Input } from "@angular/core";
         <div>
             <h3>Airline passagers!</h3>
             <div>
-                Total Checked in: {{ checkedInCount() }}/{{ items.length }}
+                Total Checked in: {{ checkedInCount() }}/{{ items?.length }}
             </div>
         </div>
     `
