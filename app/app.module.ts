@@ -14,7 +14,7 @@ import { NotFoundComponent } from './not-found-component';
 import { PassagerDashbordModule } from "./passager-dashbord/passager-dashboard.module";
 
 const ROUTES: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '', redirectTo: 'passagers', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ]
 @NgModule({
