@@ -40,7 +40,6 @@ export class PassagerDashbordComponent implements OnInit {
   }
 
   public handleEdit(event): void {
-    console.log(event);
     this.passagerDashbordServices
       .updatePassager(event)
       .subscribe((data: Passager) => {
@@ -54,7 +53,6 @@ export class PassagerDashbordComponent implements OnInit {
   }
 
   public handleRemove(event): void {
-    console.log(event);
     this.passagerDashbordServices.removePassager(event).subscribe(
       (data: Passager) => {
         this.passagers = this.passagers.filter((passager: Passager) => {

@@ -1,6 +1,6 @@
 import { Passager } from "./../models/passager.interface";
 import { Inject, Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Http, Response, Headers, RequestOptions } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 
@@ -16,8 +16,14 @@ export class PassagerDashbordServices {
     }
 
     public updatePassager(passager: Passager): Observable<Passager> {
+        let headers = new Headers({
+            'Content-Type': 'application-json'
+        });
+        let options = new RequestOptions({
+            headers
+        })
         return this.http
-            .put(PASSAGER_API + `/${passager.id}`, passager)
+            .put(PASSAGER_API + `/${passager.id}`, passager, options)
             .map((response: Response) => response.json());
     }
 

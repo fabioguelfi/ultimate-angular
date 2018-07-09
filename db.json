@@ -7,28 +7,16 @@
       "checkInDate": 12916020300
     },
     {
-      "id": 2,
-      "fullname": "Ivar guelfi",
-      "checkIn": false,
-      "checkInDate": 12916020300
+      "id": 2
     },
     {
-      "id": 3,
-      "fullname": "Ivar guelfi",
-      "checkIn": false,
-      "checkInDate": 12916020300
+      "id": 3
     },
     {
-      "id": 4,
-      "fullname": "Ivar guelfi",
-      "checkIn": false,
-      "checkInDate": 12916020300
+      "id": 4
     },
     {
-      "id": 5,
-      "fullname": "Ivar guelfi",
-      "checkIn": false,
-      "checkInDate": 12916020300
+      "id": 5
     }
   ]
 }
