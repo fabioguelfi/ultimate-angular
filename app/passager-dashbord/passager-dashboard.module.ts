@@ -5,11 +5,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PassagetDetailComponent } from './components/passager-detail/passager-detail.component';
 import { HttpModule } from '@angular/http';
+import { PassagerViewerComponent } from './containers/passager-viewer/passager-viewer.component';
 @NgModule({
     declarations: [
         PassagerDashbordComponent,
         PassagerCountComponent,
-        PassagetDetailComponent
+        PassagetDetailComponent,
+        PassagerViewerComponent,
     ], 
     imports: [
         CommonModule,
@@ -17,10 +19,12 @@ import { HttpModule } from '@angular/http';
     ],
     exports: [
         PassagerDashbordComponent,
+        PassagerViewerComponent
     ],
     providers: [
         PassagerDashbordServices
     ]
 })
 export class PassagerDashbordModule {
+    
 }
