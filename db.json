@@ -4,19 +4,23 @@
       "id": 1,
       "fullname": "Ivar guelfi",
       "checkIn": false,
-      "checkInDate": 12916020300
+      "checkInDate": 12916020300,
+      "baggage": ""
     },
     {
-      "id": 2
+      "id": 2,
+      "fullname": "Fabio guelfi",
+      "checkIn": false,
+      "checkInDate": 12916020300,
+      "baggage": ""
     },
     {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
+      "id": 3,
+      "fullname": "Renata guelfi",
+      "checkIn": false,
+      "checkInDate": 12916020300,
+      "baggage": ""
     }
+
   ]
 }
