@@ -17,7 +17,6 @@ const ROUTES: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ]
-
 @NgModule({
   declarations: [
     AppComponent,
