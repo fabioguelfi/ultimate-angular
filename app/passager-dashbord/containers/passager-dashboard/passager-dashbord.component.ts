@@ -30,10 +30,10 @@ export class PassagerDashbordComponent implements OnInit {
 
   constructor(private passagerDashbordServices: PassagerDashbordServices) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.passagerDashbordServices
       .getPassagers()
-      .map(
+      .subscribe(
         (res: Array<Passager>) => (this.passagers = res),
         err => console.log(err)
       );
@@ -42,7 +42,7 @@ export class PassagerDashbordComponent implements OnInit {
   public handleEdit(event): void {
     this.passagerDashbordServices
       .updatePassager(event)
-      .map((data: Passager) => {
+      .subscribe((data: Passager) => {
         this.passagers = this.passagers.map((passager: Passager) => {
           if (passager.id === event.id) {
             passager = Object.assign({}, passager, event);

@@ -1,5 +1,5 @@
 import { Passager } from "./../models/passager.interface";
-import { Inject, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
@@ -13,7 +13,10 @@ export class PassagerDashbordServices {
   public getPassagers(): Observable<Array<Passager>> {
     return this.http
       .get(PASSAGER_API)
-      .map((response: Response) => response.json())
+      .map((response: Response) => { 
+        console.log(response.json());
+        return response.json() 
+      })
       .catch((err: any) => Observable.throw(err.json()));
   }
 
