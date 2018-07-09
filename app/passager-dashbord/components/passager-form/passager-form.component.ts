@@ -25,21 +25,10 @@ import { Component, Input } from "@angular/core";
         <div>
             <label>
                 <input
-                [value]="true"
-                type="radio"
+                type="checkbox"
                 name="checkIn"
                 (ngModelChange)="toggleCheckIn($event)"
                 [ngModel]="detail?.checkIn">
-                Yes
-            </label>
-            <label>
-                <input
-                [value]="false"
-                type="radio"
-                name="checkIn"
-                (ngModelChange)="toggleCheckIn($event)"
-                [ngModel]="detail?.checkIn">
-                No
             </label>
         </div>
 
