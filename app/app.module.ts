@@ -7,6 +7,8 @@ import { RouterModule, Routes } from "@angular/router";
 // components
 import { AppComponent } from "./app.component";
 import { HomeComponent } from './home.component';
+import { NotFoundComponent } from './not-found-component';
+
 
 // modules
 import { PassagerDashbordModule } from "./passager-dashbord/passager-dashboard.module";
@@ -18,15 +20,15 @@ const ROUTES: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
     HomeComponent,
     NotFoundComponent
   ],
   bootstrap: [AppComponent],
   imports: [
-    BrowserModule, 
-    CommonModule, 
-    RouterModule.forRoot(ROUTES), 
+    BrowserModule,
+    CommonModule,
+    RouterModule.forRoot(ROUTES),
     PassagerDashbordModule]
 })
 export class AppModule { }
