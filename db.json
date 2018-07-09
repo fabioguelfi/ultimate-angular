@@ -1,7 +1,11 @@
 {
   "passagers": [
     {
-      "id": 1
+      "id": 1,
+      "fullname": "Henrique guelfi",
+      "checkIn": false,
+      "checkInDate": 12916020300,
+      "baggage": "none"
     },
     {
       "id": 2,

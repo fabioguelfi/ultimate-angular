@@ -10,8 +10,6 @@ import { Component, Input, OnInit, Output } from "@angular/core";
     <form 
     (ngSubmit)="handleSubmit(form.value, form.valid)"
     #form="ngForm" novalidate>
-        {{ detail | json }}
-
         <div>
             Passager Name: 
             <input type="text"
