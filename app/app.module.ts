@@ -27,7 +27,7 @@ const ROUTES: Routes = [
   imports: [
     BrowserModule,
     CommonModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES, { useHash: true }),
     PassagerDashbordModule]
 })
 export class AppModule { }
