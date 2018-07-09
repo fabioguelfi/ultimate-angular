@@ -1,11 +1,7 @@
 {
   "passagers": [
     {
-      "id": 1,
-      "fullname": "Ivar guelfi",
-      "checkIn": false,
-      "checkInDate": 12916020300,
-      "baggage": "none"
+      "id": 1
     },
     {
       "id": 2,
@@ -21,6 +17,5 @@
       "checkInDate": 12916020300,
       "baggage": "none"
     }
-
   ]
 }

@@ -1,12 +1,15 @@
+import { EventEmitter } from '@angular/common/src/facade/async';
 import { Baggage } from "./../../models/baggage.interface";
 import { Passager } from "./../../models/passager.interface";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, Output } from "@angular/core";
 
 @Component({
     selector: `passager-form`,
     styleUrls: ["passager-form.component.scss"],
     template: `
-    <form #form="ngForm" novalidate>
+    <form 
+    (ngSubmit)="handleSubmit(form.value, form.valid)"
+    #form="ngForm" novalidate>
         {{ detail | json }}
 
         <div>
@@ -74,6 +77,8 @@ import { Component, Input, OnInit } from "@angular/core";
 export class PassagerFormComponent implements OnInit {
     @Input() detail: Passager;
 
+    @Output() update: EventEmitter<Passager> = new EventEmitter<Passager>()
+
     public baggage: Array<Baggage>;
 
     ngOnInit(): void {
@@ -101,6 +106,12 @@ export class PassagerFormComponent implements OnInit {
         console.log(checkIn);
         if (checkIn) {
             this.detail.checkInDate = Date.now();
+        }
+    }
+
+    public handleSubmit(passager: Passager, isValid: boolean): void {
+        if (isValid) {
+            this.update.emit(passager);
         }
     }
 }
