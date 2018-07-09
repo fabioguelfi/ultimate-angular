@@ -1,10 +1,11 @@
+import { Baggage } from "./../../models/baggage.interface";
 import { Passager } from "./../../models/passager.interface";
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-    selector: `passager-form`,
-    styleUrls: ["passager-form.component.scss"],
-    template: `
+  selector: `passager-form`,
+  styleUrls: ["passager-form.component.scss"],
+  template: `
     <form #form="ngForm" novalidate>
         {{ detail | json }}
 
@@ -41,17 +42,64 @@ import { Component, Input } from "@angular/core";
             >
         </div>
 
+        <div>
+            Luggage:
+            <select 
+            name="baggage"
+            [ngModel]="detail?.baggage">
+                <option 
+                *ngFor="let item of baggage"
+                [value]="item.key"
+                [selected]="item.key === detail?.baggage"> 
+                {{ item?.value }}
+                </option>
+            </select>
+
+            <select 
+            name="baggage"
+            [ngModel]="detail?.baggage">
+                <option 
+                *ngFor="let item of baggage"
+                [ngValue]="item.key"> 
+                {{ item?.value }}
+                </option>
+            </select>
+        </div>
+
         {{ form.value | json }}
     </form>
     `
 })
-export class PassagerFormComponent {
-    @Input() detail: Passager;
+export class PassagerFormComponent implements OnInit {
+  @Input() detail: Passager;
 
-    public toggleCheckIn(checkIn: boolean): any {
-        console.log(checkIn)
-        if (checkIn) {
-            this.detail.checkInDate = Date.now();
-        }
+  public baggage: Array<Baggage>;
+
+  ngOnInit(): void {
+    this.baggage = [
+      {
+        key: "none",
+        value: "no baggage"
+      },
+      {
+        key: "hand-only",
+        value: "Hand baggage"
+      },
+      {
+        key: "hold-only",
+        value: "Hold baggage"
+      },
+      {
+        key: "hand-hold",
+        value: "Hand and Hold baggage"
+      }
+    ];
+  }
+
+  public toggleCheckIn(checkIn: boolean): any {
+    console.log(checkIn);
+    if (checkIn) {
+      this.detail.checkInDate = Date.now();
     }
+  }
 }
